@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ackeem Kipp — Data & AI Automation Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0f0d;
+  --ink2: #2a2a26;
+  --muted: #6b6b63;
+  --rule: #e2e0d8;
+  --cream: #faf9f6;
+  --blue: #1a4fa0;
+  --blue-light: #e8eef9;
+  --teal: #0f6e56;
+  --teal-light: #e1f5ee;
+  --amber: #a05c0a;
+  --amber-light: #faeeda;
+  --red: #b02a2a;
+  --red-light: #fcebeb;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── HEADER ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 1px solid #2a2a26;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 56px;
+}
+.site-header .name {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+.site-header nav {
+  display: flex;
+  gap: 28px;
+}
+.site-header nav a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9a92;
+  transition: color 0.2s;
+}
+.site-header nav a:hover { color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 80px 40px 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 60px,
+    rgba(255,255,255,0.015) 60px,
+    rgba(255,255,255,0.015) 61px
+  );
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b8cc4;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: #6b8cc4;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: #8baade;
+}
+.hero-sub {
+  font-size: 16px;
+  color: #9a9a92;
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: #fff;
+  color: var(--ink);
+}
+.btn-primary:hover { background: #e8e8e0; }
+.btn-outline {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #3a3a36;
+}
+.btn-outline:hover { border-color: #8a8a80; color: #fff; }
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  margin-top: 64px;
+  border-top: 1px solid #2a2a26;
+  padding-top: 36px;
+}
+.hero-stat {
+  flex: 1;
+  padding-right: 32px;
+  border-right: 1px solid #2a2a26;
+  margin-right: 32px;
+}
+.hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.hero-stat .val {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat .lbl {
+  font-size: 11px;
+  color: #6b6b63;
+  letter-spacing: 0.04em;
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+.section + .section { padding-top: 0; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 60px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.section-body {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.about-text p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.about-text p:last-child { margin-bottom: 0; }
+.about-text strong { color: var(--ink); font-weight: 500; }
+
+.about-sidebar { display: flex; flex-direction: column; gap: 14px; }
+.info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+}
+.info-row .key {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.info-row .val {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.info-row .val a { color: var(--blue); }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.skill-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 22px 20px;
+  transition: border-color 0.2s;
+}
+.skill-card:hover { border-color: #bbb; }
+.skill-card-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.skill-card h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.skill-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  background: var(--cream);
+}
+
+/* ── CASE STUDY CARDS ── */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.work-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.work-card:hover {
+  border-color: #bbb;
+  transform: translateY(-2px);
+}
+.work-card-header {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.work-card-type {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.work-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.work-card .desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.work-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.work-stat {
+  padding: 16px 20px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.work-stat:nth-child(even) { border-right: none; }
+.work-stat:nth-child(n+3) { border-bottom: none; }
+.work-stat .sv {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.work-stat .sl {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.work-card-footer {
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px solid var(--rule);
+}
+.work-card-footer .org {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.work-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.work-link:hover { gap: 7px; }
+
+/* Main case study - full width */
+.work-card.featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.work-card.featured .work-card-header {
+  border-bottom: none;
+  border-right: 1px solid var(--rule);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.work-card.featured .work-card-right {
+  display: flex;
+  flex-direction: column;
+}
+.work-card.featured .work-card-stats {
+  flex: 1;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.work-card.featured .work-stat { border-bottom: 1px solid var(--rule); }
+.work-card.featured .work-stat:nth-child(n+5) { border-bottom: none; }
+.work-card.featured .work-card-footer {
+  border-top: none;
+  padding: 20px 24px;
+}
+
+/* ── PIPELINE CARD ── */
+.pipeline-card {
+  background: var(--ink);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a2a26;
+  display: flex;
+  flex-direction: column;
+}
+.pipeline-header {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid #2a2a26;
+}
+.pipeline-type {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b6b63;
+  margin-bottom: 10px;
+}
+.pipeline-header h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.pipeline-header .desc { font-size: 13px; color: #9a9a92; line-height: 1.6; }
+.pipeline-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 20px 28px;
+  flex: 1;
+}
+.pipeline-stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e1e1a;
+}
+.pipeline-stage:last-child { border-bottom: none; }
+.ps-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1e1e1a;
+  border: 1px solid #3a3a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 500;
+  color: #6b6b63;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ps-title { font-size: 12px; font-weight: 500; color: #ccc; margin-bottom: 1px; }
+.ps-sub { font-size: 11px; color: #6b6b63; }
+.pipeline-footer {
+  padding: 14px 28px;
+  border-top: 1px solid #2a2a26;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pipeline-footer .org { font-size: 12px; color: #6b6b63; font-weight: 500; }
+.pipeline-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8baade;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.pipeline-link:hover { gap: 7px; }
+
+/* ── IMPACT BAR ── */
+.impact-bar {
+  background: var(--ink);
+  border-top: 1px solid #1e1e1a;
+  border-bottom: 1px solid #1e1e1a;
+  padding: 48px 40px;
+}
+.impact-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.impact-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a4a42;
+  margin-bottom: 32px;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+}
+.impact-item {
+  padding: 0 24px 0 0;
+  border-right: 1px solid #2a2a26;
+  margin-right: 24px;
+}
+.impact-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.impact-val {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.impact-lbl { font-size: 10px; color: #4a4a42; line-height: 1.4; }
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-date { font-size: 12px; color: var(--muted); padding-top: 3px; }
+.exp-role { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.exp-org { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.exp-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ── RECOGNITION ── */
+.rec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 0;
+}
+.rec-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+.rec-card:hover { border-color: #bbb; }
+.rec-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.rec-award-badge {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-platinum {
+  background: #f0ede6;
+  color: #7a6a3a;
+  border: 1px solid #d4c88a;
+}
+.badge-spot {
+  background: var(--blue-light);
+  color: var(--blue);
+  border: 1px solid #b5d4f4;
+}
+.rec-org {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.rec-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.rec-quote {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid var(--rule);
+  padding-left: 14px;
+}
+.rec-meta {
+  font-size: 11px;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width:720px) {
+  .rec-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: var(--ink);
+  padding: 80px 40px;
+}
+.contact-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.contact-left .section-title { color: #fff; }
+.contact-left .section-body { color: #6b6b63; margin-bottom: 28px; }
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #9a9a92;
+  transition: color 0.2s;
+}
+.contact-link:hover { color: #fff; }
+.contact-link-ico {
+  width: 32px;
+  height: 32px;
+  background: #1e1e1a;
+  border: 1px solid #2a2a26;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.contact-right {
+  background: #0a0a08;
+  border: 1px solid #2a2a26;
+  border-radius: 12px;
+  padding: 28px;
+}
+.contact-right h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.contact-note {
+  font-size: 13px;
+  color: #6b6b63;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #4a9e75;
+  font-weight: 500;
+}
+.avail-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a9e75;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--ink);
+  border-top: 1px solid #1e1e1a;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-footer .copy { font-size: 11px; color: #4a4a42; }
+.site-footer .built { font-size: 11px; color: #3a3a36; }
+
+/* ── DIVIDER ── */
+.full-rule {
+  height: 1px;
+  background: var(--rule);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .site-header { padding: 0 20px; }
+  .site-header nav { display: none; }
+  .hero { padding: 52px 20px 64px; }
+  .hero-stats { flex-direction: column; gap: 20px; }
+  .hero-stat { border-right: none; border-bottom: 1px solid #2a2a26; padding-bottom: 20px; margin-bottom: 20px; margin-right: 0; padding-right: 0; }
+  .hero-stat:last-child { border-bottom: none; }
+  .section { padding: 52px 20px; }
+  .about-grid, .skills-grid, .work-grid { grid-template-columns: 1fr; }
+  .work-card.featured { grid-template-columns: 1fr; }
+  .work-card.featured .work-card-header { border-right: none; border-bottom: 1px solid var(--rule); }
+  .impact-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; row-gap: 28px; }
+  .impact-item { border-right: none; margin-right: 0; padding-right: 0; }
+  .exp-item { grid-template-columns: 1fr; gap: 4px; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .impact-bar { padding: 40px 20px; }
+  .contact-section { padding: 52px 20px; }
+  .site-footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="name">Ackeem Kipp</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Data Analytics &amp; AI Automation</div>
+    <h1>Turning fragmented data<br>into <em>automated systems</em><br>that drive decisions.</h1>
+    <p class="hero-sub">10+ years building governance frameworks, data pipelines, and automation workflows across enterprise SaaS environments. Brooklyn, NY.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View case studies &darr;</a>
+      <a href="/cdn-cgi/l/email-protection#2342404846464e0d4863444e424a4f0d404c4e" class="btn btn-outline">Get in touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="val">2,300+</div>
+        <div class="lbl">Enterprise apps under governance</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">21</div>
+        <div class="lbl">Live API integrations deployed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">11</div>
+        <div class="lbl">Business units served</div>
+      </div>
+      <div class="hero-stat">
+        <div class="val">70&rarr;6</div>
+        <div class="lbl">PM tools consolidated via AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT BAR -->
+<div class="impact-bar">
+  <div class="impact-inner">
+    <div class="impact-label">Hearst Communications &mdash; SaaS governance program impact</div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-val">10</div>
+        <div class="impact-lbl">Source systems unified</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">100K+</div>
+        <div class="impact-lbl">Raw records normalized</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">2,105</div>
+        <div class="impact-lbl">Apps via manual pipeline</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">2,300+</div>
+        <div class="impact-lbl">Apps via Torii discovery</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">613</div>
+        <div class="impact-lbl">High-risk apps surfaced</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">21</div>
+        <div class="impact-lbl">Live API integrations</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-val">&lt;1hr</div>
+        <div class="impact-lbl">Offboarding access revoke</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div id="work">
+  <div class="section">
+    <div class="section-label reveal">Featured work</div>
+    <div class="section-title reveal">Case studies &amp; projects</div>
+    <p class="section-body reveal">Enterprise-scale programs where fragmented processes were redesigned into automated, decision-grade systems.</p>
+
+    <div class="work-grid">
+
+      <!-- FEATURED: Hearst Case Study -->
+      <div class="work-card featured reveal">
+        <div class="work-card-header">
+          <div>
+            <div class="work-card-type">Case study &bull; SaaS governance</div>
+            <h3>Enterprise Application Intelligence Pipeline</h3>
+            <p class="desc">Built a 9-step normalization and enrichment pipeline that transformed 100K+ raw records from 10 fragmented source systems into a decision-grade application inventory &mdash; driving cost, risk, and disaster recovery decisions across Hearst&rsquo;s 11 business units.</p>
+          </div>
+          <div class="tag-list" style="margin-top:20px">
+            <span class="tag">Excel / Power Query</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Torii</span>
+            <span class="tag">Okta</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="work-card-right">
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="sv" style="color:var(--blue)">100K+</div>
+              <div class="sl">Raw records normalized</div>
+            </div>
+            <div class="work-stat">
+              <div class="sv" style="color:var(--teal)">2,300+</div>
+              <div class="sl">Apps discovered via Torii</div>
+            </div>
+            <div class="work-stat">
+              <div class="sv" style="color:var(--red)">613</div>
+              <div class="sl">High-risk apps surfaced</div>
+            </div>
+            <div class="work-stat">
+              <div class="sv" style="color:var(--amber)">70&rarr;6</div>
+              <div class="sl">PM tools consolidated</div>
+            </div>
+          </div>
+          <div class="work-card-footer">
+            <span class="org">Hearst Communications &bull; 2023&ndash;2024</span>
+            <a href="hearst_case_study_exbo_v2.html" class="work-link">Explore case study &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline Visual -->
+      <div class="pipeline-card reveal">
+        <div class="pipeline-header">
+          <div class="pipeline-type">Interactive visual &bull; Pipeline architecture</div>
+          <h3>SaaS Governance Pipeline</h3>
+          <p class="desc">Animated walkthrough of the full data pipeline &mdash; from 10 fragmented source exports through normalization, Power BI reporting, Torii onboarding, AI-driven cost savings, and live workflow automation.</p>
+        </div>
+        <div class="pipeline-stages">
+          <div class="pipeline-stage">
+            <div class="ps-num">1</div>
+            <div><div class="ps-title">CSV source consolidation</div><div class="ps-sub">Wiz, Tenable, Zscaler, CrowdStrike, JAMF, SAMPro, Concur, SpendHQ, Ad-hoc, CAQ/TCS</div></div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="ps-num">2</div>
+            <div><div class="ps-title">Master inventory build</div><div class="ps-sub">9-step normalization pipeline &bull; 100K+ &rarr; 2,105 apps</div></div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="ps-num">3</div>
+            <div><div class="ps-title">Power BI reporting</div><div class="ps-sub">3-tab executive dashboard &bull; risk, BU, and spend views</div></div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="ps-num">4</div>
+            <div><div class="ps-title">Torii onboarding</div><div class="ps-sub">21 live API integrations &bull; discovery gap: 200+ shadow IT apps found</div></div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="ps-num">5</div>
+            <div><div class="ps-title">AI cost optimization</div><div class="ps-sub">Torii AI classification &bull; 70 PM tools &rarr; 6&ndash;7 strategic platforms</div></div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="ps-num">6</div>
+            <div><div class="ps-title">Automated workflows</div><div class="ps-sub">Provisioning, onboarding, offboarding, renewal alerts</div></div>
+          </div>
+        </div>
+        <div class="pipeline-footer">
+          <span class="org">Hearst Communications &bull; 2023&ndash;2024</span>
+          <a href="hearst_saas_pipeline_v2.html" class="pipeline-link">Launch interactive &rarr;</a>
+        </div>
+      </div>
+
+      <!-- n8n Workflow card -->
+      <div class="work-card reveal">
+        <div class="work-card-header">
+          <div class="work-card-type">Automation design &bull; n8n workflow</div>
+          <h3>SaaS Inventory Sync Automation</h3>
+          <p class="desc">Designed and built an n8n workflow that pulls from Okta, Google Sheets, and Torii&rsquo;s API simultaneously, normalizes and deduplicates in a JavaScript code node, then routes records to create or update endpoints &mdash; with exception reporting via Gmail.</p>
+          <div class="tag-list" style="margin-top:16px">
+            <span class="tag">n8n</span>
+            <span class="tag">Okta API</span>
+            <span class="tag">Torii API</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">REST / webhooks</span>
+            <span class="tag">Gmail</span>
+          </div>
+        </div>
+        <div class="work-card-stats">
+          <div class="work-stat">
+            <div class="sv" style="color:var(--blue)">3</div>
+            <div class="sl">Parallel data sources</div>
+          </div>
+          <div class="work-stat">
+            <div class="sv" style="color:var(--teal)">Weekly</div>
+            <div class="sl">Automated sync cadence</div>
+          </div>
+        </div>
+        <div class="work-card-footer">
+          <span class="org">Workflow architecture &bull; 2024</span>
+          <a href="hearst_n8n_workflow.html" class="work-link">View workflow &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div style="background:#fff; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)">
+  <div id="skills" class="section">
+    <div class="section-label reveal">Capabilities</div>
+    <div class="section-title reveal">What I bring to the table</div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--blue-light)">📊</div>
+        <h4>Data engineering & analytics</h4>
+        <p>Multi-source normalization pipelines, deduplication architectures, DAX modeling, and executive-facing BI reporting across complex enterprise environments.</p>
+        <div class="tag-list">
+          <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Excel / Power Query</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--teal-light)">⚙️</div>
+        <h4>Process automation & integration</h4>
+        <p>API-driven workflow design and deployment across enterprise stacks. From n8n pipeline architecture to Torii lifecycle automation to Okta provisioning triggers.</p>
+        <div class="tag-list">
+          <span class="tag">n8n</span><span class="tag">REST APIs</span><span class="tag">Okta</span><span class="tag">Torii</span><span class="tag">ServiceNow</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--amber-light)">🏛️</div>
+        <h4>SaaS governance & rationalization</h4>
+        <p>End-to-end application portfolio programs: discovery, inventory, risk assessment, lifecycle management, vendor consolidation, and cost optimization.</p>
+        <div class="tag-list">
+          <span class="tag">Torii</span><span class="tag">SailPoint</span><span class="tag">Wiz</span><span class="tag">CrowdStrike</span><span class="tag">JAMF</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--red-light)">🤖</div>
+        <h4>AI-powered workflow design</h4>
+        <p>Integrating LLMs into business processes for document parsing, classification at scale, and intelligent automation. Practical AI — not demos.</p>
+        <div class="tag-list">
+          <span class="tag">Claude API</span><span class="tag">OpenAI</span><span class="tag">Gumloop</span><span class="tag">Make</span><span class="tag">Zapier</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--blue-light)">🔐</div>
+        <h4>Identity & access governance</h4>
+        <p>Joiner-mover-leaver lifecycle design, SSO/MFA enforcement, deprovisioning automation, and audit trail generation for SOC 2-adjacent compliance.</p>
+        <div class="tag-list">
+          <span class="tag">Okta</span><span class="tag">Entra ID</span><span class="tag">SailPoint</span><span class="tag">SCIM</span><span class="tag">SAML</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-ico" style="background:var(--teal-light)">📋</div>
+        <h4>Stakeholder communication</h4>
+        <p>Translating technical work into executive-ready reporting. Experienced presenting risk, spend, and governance findings to C-suite and cross-functional leadership.</p>
+        <div class="tag-list">
+          <span class="tag">Power BI</span><span class="tag">PowerPoint</span><span class="tag">Stakeholder mgmt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+  <div class="section">
+    <div class="section-label reveal">Background</div>
+    <div class="section-title reveal">Experience</div>
+
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-date">2023 &ndash; 2024</div>
+        <div>
+          <div class="exp-role">SaaS Governance & Application Rationalization Lead</div>
+          <div class="exp-org">Hearst Communications</div>
+          <div class="exp-desc">Built the company&rsquo;s SaaS governance program from scratch. Consolidated 10 data sources, built a 9-step application intelligence pipeline normalizing 100K+ records to 2,105 attributed apps, delivered executive Power BI reporting, onboarded Torii with 21 API integrations, and deployed provisioning, offboarding, and renewal automation workflows across 11 business units and 2,300+ applications.</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-date">Prior</div>
+        <div>
+          <div class="exp-role">Data Analytics & IT Consulting</div>
+          <div class="exp-org">Dell EMC &bull; ITCS Group &bull; Capco</div>
+          <div class="exp-desc">System implementations, analytics initiatives, and operational improvements across large enterprise environments. Partnered with engineering and business teams on application analysis, integrations, and cross-functional program delivery.</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-date">2014</div>
+        <div>
+          <div class="exp-role">B.S. Information Management & Technology</div>
+          <div class="exp-org">Syracuse University &bull; iSchool</div>
+          <div class="exp-desc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECOGNITION -->
+<div style="background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="section">
+    <div class="section-label reveal">Recognition</div>
+    <div class="section-title reveal">Awards &amp; peer recognition</div>
+    <div class="rec-grid">
+
+      <div class="rec-card reveal">
+        <div class="rec-card-top">
+          <div class="rec-org">Dell EMC &bull; Excellence@Dell</div>
+          <span class="rec-award-badge badge-platinum">Platinum Award</span>
+        </div>
+        <div class="rec-title">Enterprise BI Integration Go-Live &amp; Stabilization</div>
+        <div class="rec-quote">
+          "Over the course of several months, the team worked through significant obstacles to ready, implement, and stabilize our enterprise BI reporting solution&hellip; conceptual design &amp; mapping, training, report remediation, global user enablement, troubleshooting &amp; stabilization &mdash; without which reporting would not be possible."
+        </div>
+        <div class="rec-meta">
+          <span>Nominated by Joseph M. Dery</span>
+          <span>April 2017</span>
+        </div>
+      </div>
+
+      <div class="rec-card reveal">
+        <div class="rec-card-top">
+          <div class="rec-org">Dell EMC &bull; Excellence@Dell</div>
+          <span class="rec-award-badge badge-spot">On the Spot Award</span>
+        </div>
+        <div class="rec-title">NMS Report Teamwork</div>
+        <div class="rec-quote">
+          "Ackeem was an excellent partner for our team in establishing a customized business analytics report. He had an excellent attitude throughout the process, despite some challenging requirements."
+        </div>
+        <div class="rec-meta">
+          <span>Nominated by Joseph M. Dery</span>
+          <span>June 2017</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label" style="color:#4a4a42">Contact</div>
+      <div class="section-title">Let&rsquo;s work together.</div>
+      <p class="section-body">Open to senior roles in data analytics, SaaS governance, AI automation consulting, and platform operations. Based in Brooklyn, NY.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#abcac8c0cecec685c0ebccc6cac2c785c8c4c6" class="contact-link">
+          <div class="contact-link-ico">✉</div>
+          <span class="__cf_email__" data-cfemail="0d6c6e6668686023664d6a606c6461236e6260">[email&#160;protected]</span>
+        </a>
+        <a href="https://linkedin.com/in/ackeemkipp" class="contact-link" target="_blank">
+          <div class="contact-link-ico">in</div>
+          linkedin.com/in/ackeemkipp
+        </a>
+        <a href="https://github.com" class="contact-link" target="_blank">
+          <div class="contact-link-ico">gh</div>
+          github.com/ackeemkipp
+        </a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h4>Currently available</h4>
+      <p class="contact-note">Actively interviewing for full-time roles in New York City. Interested in AI automation consulting, SaaS platform operations, and data governance programs at growth-stage or enterprise organizations.</p>
+      <div class="availability">
+        <div class="avail-dot"></div>
+        Open to new opportunities
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span class="copy">&copy; 2026 Ackeem Kipp. Brooklyn, NY.</span>
+  <span class="built">Portfolio &mdash; Data Analytics & AI Automation</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
